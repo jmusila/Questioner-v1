@@ -32,6 +32,6 @@ class TestMeetups(Settings):
     def test_get_meetup_id_that_doesnt_exist(self):
         res = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
         self.assertEqual(res.status_code, 201)
-        res1 = self.client.get('/meetups/upcoming/4')
+        res1 = self.client.get('/meetups/upcoming/4') 
         data = json.loads(res1.get_data().decode())
         self.assertEqual(res1.status_code, 404)
