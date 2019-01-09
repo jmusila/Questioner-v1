@@ -27,9 +27,9 @@ class Questions(Resource):
         a = meetup.get_single_meetup(m_id)
         if a:
             new_qsn = api.payload
-            new_qsn['qsn_id'] = len(new_qsn) + 1
+            new_qsn['qsn_id'] = len(question.Questions) + 1
             new_qsn['createdOn'] = question.createdOn
             new_qsn['meetup_id'] = a['m_id']
             question.Questions.append(new_qsn)
-            return {'Message': "Question added successfully", 'Status': 201}, 201
+            return make_response(jsonify({'Message': "Question added successfully", 'Status': 201, "Data": new_qsn}), 201)
         raise NotFound ('Meetup with that id not found')
