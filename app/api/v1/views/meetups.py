@@ -13,3 +13,13 @@ api = MeetupsModel().api
 
 @api.route('')
 class Meetup(Resource):
+
+
+    @api.expect(new_meetup, validate = True)
+    def post(self):
+        '''Post a meetup'''
+        new_mtup = api.payload
+        new_mtup['m_id'] = len(meetup.Meetups) + 1
+        new_mtup['createdOn'] = meetup.createdOn
+        meetup.Meetups.append(new_mtup)
+        return {'Message': "Meetup added successfully", 'Status': "201"}, 201
