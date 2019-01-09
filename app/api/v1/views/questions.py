@@ -20,3 +20,16 @@ api = QuestionModel().api
 
 @api.route('/<int:m_id>/questions')
 class Questions(Resource):
+
+    @api.expect(new_question, validate = True)
+    def post(self, m_id):
+        '''Post a question'''
+        a = meetup.get_single_meetup(m_id)
+        if a:
+            new_qsn = api.payload
+            new_qsn['qsn_id'] = len(new_qsn) + 1
+            new_qsn['createdOn'] = question.createdOn
+            new_qsn['meetup_id'] = a['m_id']
+            question.Questions.append(new_qsn)
+            return {'Message': "Question added successfully", 'Status': 201}, 201
+        raise NotFound ('Meetup with that id not found')
