@@ -8,6 +8,7 @@ from flask_restplus import Api
 
 #Local imports
 from .views.meetups import api as meetups_route
+from .views.questions import api as questions_route
 
 version1 = Blueprint('api', __name__, url_prefix="/api/v1")
 api = Api(version1)
