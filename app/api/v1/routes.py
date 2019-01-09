@@ -19,3 +19,4 @@ api = Api(
 )
 
 api.add_namespace(meetups_route, path = "/meetups/upcoming")
+api.add_namespace(questions_route, path = "/meetups")
