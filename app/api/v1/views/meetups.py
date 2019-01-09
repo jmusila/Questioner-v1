@@ -15,6 +15,8 @@ api = MeetupsModel().api
 class Meetup(Resource):
     @api.doc('list_meetups')
     def get(self):
+        '''List all meetups'''
+        return make_response(jsonify({"Status": 200, "Meetups":meetup.Meetups}), 200)
 
     @api.expect(new_meetup, validate = True)
     def post(self):
