@@ -23,3 +23,13 @@ class Meetup(Resource):
         new_mtup['createdOn'] = meetup.createdOn
         meetup.Meetups.append(new_mtup)
         return make_response(jsonify({'Message': "Meetup added successfully", 'Status': 201, "data":new_mtup}), 201)
+
+@api.route('/<int:m_id>')
+class SingleMeetup(Resource):
+    @api.marshal_with(new_meetup, envelope = 'Meetup')
+    def get(self, m_id):
+        '''Get single Meetup'''
+        a = meetup.get_single_meetup(m_id)
+        if a:
+            return a
+        raise NotFound ('Meetup with that id not found')
