@@ -23,3 +23,12 @@ class QuestionModel:
     Question input data
 
     """
+    api = Namespace('Questions', description='Questions Routes')
+    questions = api.model('Question', {
+        'qsn_id':fields.Integer(required=True, description='The unique identifier of the question'),
+        'body': fields.String(required=True, description='The body of the question'),
+        'meetup_id': fields.Integer(required=True, description='The meetup unique identifier'),
+        'createdOn': fields.String(required=True, description='The time the question was posted'),
+        'title': fields.String(required=True, description='The title of the question'),
+        'votes': fields.String(required=True, description='The number of votes a question contains'),
+    })
