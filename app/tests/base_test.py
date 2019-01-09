@@ -24,5 +24,15 @@ class Settings(unittest.TestCase):
             "happeningOn": "12th Feb"
         }
 
+        self.question ={
+            "body": "The question body",
+            "createdOn": "Wed, 09 Jan 2019 23:10:16 GMT",
+            "meetup_id": 1,
+            "qsn_id": 1,
+            "title": "question title",
+            "votes": "6"
+        }
+
     def tearDown(self):
         del self.meetup
+        del self.question
