@@ -17,3 +17,6 @@ from app.api.v1.views.meetups import meetup
 question = Question('qsn_id', 'body','meetup_id', 'title', 'votes' )
 new_question = QuestionModel().questions
 api = QuestionModel().api 
+
+@api.route('/<int:m_id>/questions')
+class Questions(Resource):
