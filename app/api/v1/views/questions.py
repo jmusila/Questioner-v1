@@ -7,3 +7,9 @@ This file contaions all the endpoints for the questions
 from flask_restplus import Resource
 from flask import request, make_response, jsonify
 from werkzeug.exceptions import BadRequest, NotFound, Unauthorized, Forbidden
+
+#Local imports
+from app.api.v1.models.questions import Question
+from app.api.v1.views.expect import QuestionModel
+from app.api.v1.models.meetups import Meetups
+from app.api.v1.views.meetups import meetup
