@@ -32,3 +32,16 @@ class QuestionModel:
         'title': fields.String(required=True, description='The title of the question'),
         'votes': fields.String(required=True, description='The number of votes a question contains'),
     })
+
+class ResponseModel:
+    """
+    Response input data
+
+    """
+    api = Namespace('Responds', description = 'Responses Routes')
+    responses = api.model('Response', {
+        'r_id':fields.Integer(required=True, description='The unique identifier of the comment'),
+        'meetup_id': fields.String(required=True, description='Meetup unique identifier'),
+        'topic': fields.String(required=True, description='The topic of the meetup'),
+        'status': fields.String(required=True, description='The response status'),
+    })
