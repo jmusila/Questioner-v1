@@ -41,7 +41,7 @@ class ResponseModel:
     api = Namespace('Responds', description = 'Responses Routes')
     responses = api.model('Response', {
         'r_id':fields.Integer(required=True, description='The unique identifier of the comment'),
-        'meetup_id': fields.String(required=True, description='Meetup unique identifier'),
+        'meetup_id': fields.Integer(required=True, description='Meetup unique identifier'),
         'topic': fields.String(required=True, description='The topic of the meetup'),
         'status': fields.String(required=True, description='The response status'),
     })
