@@ -17,3 +17,9 @@ class MeetupsModel:
         'topic': fields.String(required=True, description='The meetup topic'),
         'happeningOn': fields.String(required=True, description='The date the meetup is happening'),
     })
+
+class QuestionModel:
+    """
+    Question input data
+
+    """
