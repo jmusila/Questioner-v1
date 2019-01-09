@@ -8,3 +8,7 @@ from app.api.v1.models.rsvp import Responds
 from app.api.v1.views.expect import ResponseModel
 from app.api.v1.models.meetups import Meetups
 from app.api.v1.views.meetups import meetup
+
+response = Responds('r_id', 'meetup_id', 'topic', 'status' )
+new_res = ResponseModel().responses
+api = ResponseModel().api
