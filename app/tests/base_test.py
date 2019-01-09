@@ -23,3 +23,6 @@ class Settings(unittest.TestCase):
             "topic": "Python",
             "happeningOn": "12th Feb"
         }
+
+    def tearDown(self):
+        del self.meetup
