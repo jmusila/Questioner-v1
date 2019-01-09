@@ -13,7 +13,8 @@ api = MeetupsModel().api
 
 @api.route('')
 class Meetup(Resource):
-
+    @api.doc('list_meetups')
+    def get(self):
 
     @api.expect(new_meetup, validate = True)
     def post(self):
