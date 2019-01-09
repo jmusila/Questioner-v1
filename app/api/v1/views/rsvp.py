@@ -12,3 +12,6 @@ from app.api.v1.views.meetups import meetup
 response = Responds('r_id', 'meetup_id', 'topic', 'status' )
 new_res = ResponseModel().responses
 api = ResponseModel().api
+
+@api.route('/<int:m_id>/rsvp')
+class ReapondOp(Resource):
