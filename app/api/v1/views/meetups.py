@@ -22,4 +22,4 @@ class Meetup(Resource):
         new_mtup['m_id'] = len(meetup.Meetups) + 1
         new_mtup['createdOn'] = meetup.createdOn
         meetup.Meetups.append(new_mtup)
-        return {'Message': "Meetup added successfully", 'Status': 201}, 201
+        return make_response(jsonify({'Message': "Meetup added successfully", 'Status': 201, "data":new_mtup}), 201)
