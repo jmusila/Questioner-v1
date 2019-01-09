@@ -9,3 +9,8 @@ import json
 
 # Local application imports
 from app.apps import create_app
+
+class Settings(unittest.TestCase):
+    def setUp(self):
+        self.app = create_app(config_name="testing")
+        self.client = self.app.test_client()
