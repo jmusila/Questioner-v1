@@ -39,3 +39,13 @@ class TestQuestions(Settings):
         res1 = self.client.get('/meetups/1/questions/4')
         data = json.loads(res1.get_data().decode())
         self.assertEqual(res1.status_code, 404)
+
+    def test_upvote_a_question(self):
+        res = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
+        rv = self.client.post('/meetups/1/upvote', data=json.dumps(self.upvote), content_type='application/json')
+        self.assertEqual(res.status_code, 201)
+
+    def test_downvote_a_question(self):
+        res = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
+        rv = self.client.post('/meetups/1/downvote', data=json.dumps(self.downvote), content_type='application/json')
+        self.assertEqual(res.status_code, 201)
