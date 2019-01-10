@@ -88,3 +88,14 @@ Test the following endpoints:
 | ------------------------------------|:---------------------------------------:|
 | POST     /meetups/id/rsvp           | Posts a response to a meetup tag        |
 |                                                                               |
+
+## Authors
+
+* **Jonathan Musila** - *Initial work* - [jonathanmusila](https://github.com/jonathanmusila)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+#### Contribution
+Fork the repo, create a PR to this repository's develop branch.
