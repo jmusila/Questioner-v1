@@ -35,3 +35,7 @@ class Questions(Resource):
             question.Questions.append(new_qsn)
             return make_response(jsonify({'Message': "Question added successfully", 'Status': 201, "Data": new_qsn}), 201)
         raise NotFound ('Meetup with that id not found')
+
+@api.route('/questions/<int:qsn_id>/downvote')
+class DownVoteQuestion(Resource):
+    @api.expect(n_votes, validate = True)
