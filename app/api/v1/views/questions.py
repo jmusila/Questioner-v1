@@ -39,3 +39,12 @@ class Questions(Resource):
 @api.route('/questions/<int:qsn_id>/downvote')
 class DownVoteQuestion(Resource):
     @api.expect(n_votes, validate = True)
+    def patch(self, qsn_id):
+        ''' Down votes '''
+        item = question.get_single_question(qsn_id)
+        if item:
+            if item['votes'] > 0: 
+                item['votes'] = item['votes']- 1
+                return make_response(jsonify({'Message': "Vote updated successfully", 'Status': 201, "Data": item}), 201)
+            raise BadRequest('Votes cannot be less than zero')
+        raise NotFound ('Question with that id not found')
