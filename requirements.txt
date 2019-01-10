@@ -25,6 +25,7 @@ pluggy==0.8.0
 py==1.7.0
 pylint==2.2.2
 pytest==4.1.0
+pytest-cov==2.6.1
 pytz==2018.9
 requests==2.21.0
 six==1.12.0
