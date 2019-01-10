@@ -63,3 +63,28 @@ Fire up postman and start the development server by:
   ```
 
 Test the following endpoints:
+
+### Meetups endpoints
+
+| EndPoint                       | Functionality                           |
+| -------------------------------|:---------------------------------------:|
+| POST     /meetups/upcoming     | Posts new meetup                        |
+| GET     /meetups/upcoming      | Gets all meetups as a list              |
+| GET     /meetups/upcoming      | Gets a single meetup by id              |
+|                                                                          |
+
+### Questions endpoints
+
+| EndPoint                            | Functionality                           |
+| ------------------------------------|:---------------------------------------:|
+| POST     /meetups/id/questions      | Posts new question                      |
+| PATCH     /meetups/id/upvote        | Patches a upvote to a question          |
+| PATCH     /meetups/id/upvote        | Patches a upvote to a question          |
+|                                                                               |
+
+### Rsvp endpoints
+
+| EndPoint                            | Functionality                           |
+| ------------------------------------|:---------------------------------------:|
+| POST     /meetups/id/rsvp           | Posts a response to a meetup tag        |
+|                                                                               |
