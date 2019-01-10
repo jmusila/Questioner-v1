@@ -30,7 +30,7 @@ class QuestionModel:
         'meetup_id': fields.Integer(required=True, description='The meetup unique identifier'),
         'createdOn': fields.String(required=True, description='The time the question was posted'),
         'title': fields.String(required=True, description='The title of the question'),
-        'votes': fields.String(required=True, description='The number of votes a question contains'),
+        'votes': fields.Integer(required=True, description='The number of votes a question contains'),
     })
 
 class ResponseModel:
