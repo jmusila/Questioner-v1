@@ -17,6 +17,7 @@ from app.api.v1.views.expect import VotesModel
 
 question = Question('qsn_id', 'body','meetup_id', 'title', 'votes' )
 new_question = QuestionModel().questions
+n_votes = VotesModel().nvotes
 api = QuestionModel().api 
 
 @api.route('/<int:m_id>/questions')
