@@ -14,7 +14,7 @@ class Settings(unittest.TestCase):
     def setUp(self):
         self.app = create_app(config_name="testing")
         self.client = self.app.test_client()
-
+        
         self.meetup ={
             "m_id":1,
             "createdOn":"Wed, 09 Jan 2019 22:19:25 GMT",
@@ -30,9 +30,18 @@ class Settings(unittest.TestCase):
             "meetup_id": 1,
             "qsn_id": 1,
             "title": "question title",
-            "votes": "6"
+            "votes": 2
+        }
+        self.upvote = {
+            "votes": 0
+        }
+
+        self.downvote = {
+            "votes": 0
         }
 
     def tearDown(self):
         del self.meetup
         del self.question
+        del self.upvote 
+        del self.downvote
