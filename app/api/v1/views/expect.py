@@ -45,3 +45,13 @@ class ResponseModel:
         'topic': fields.String(required=True, description='The topic of the meetup'),
         'status': fields.String(required=True, description='The response status'),
     })
+
+class VotesModel:
+    """
+    Upvote/Downvote input data
+
+    """
+    api = Namespace('Question_Votes', description='Question_Votes Route')
+    nvotes = api.model('Question', {
+        'votes': fields.Integer(required=True, description='The number of votes a question contains'),
+        })
