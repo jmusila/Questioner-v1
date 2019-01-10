@@ -43,3 +43,5 @@ class Settings(unittest.TestCase):
     def tearDown(self):
         del self.meetup
         del self.question
+        del self.upvote 
+        del self.downvote
