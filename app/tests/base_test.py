@@ -14,7 +14,7 @@ class Settings(unittest.TestCase):
     def setUp(self):
         self.app = create_app(config_name="testing")
         self.client = self.app.test_client()
-
+        
         self.meetup ={
             "m_id":1,
             "createdOn":"Wed, 09 Jan 2019 22:19:25 GMT",
