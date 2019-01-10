@@ -50,3 +50,16 @@ After activativating the virtualenv, run:
     export FLASK_ENV="development"
 
     ```
+## Running Tests
+Run:
+```
+pytest --cov-report term-missing --cov=app
+```
+
+### Testing on Postman
+Fire up postman and start the development server by:
+  ```
+  $ flask run
+  ```
+
+Test the following endpoints:
