@@ -30,3 +30,4 @@ class TestQuestions(Settings):
         res = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
         rv = self.client.post('/meetups/1/downvote', data=json.dumps(self.downvote), content_type='application/json')
         self.assertEqual(res.status_code, 201)
+        
