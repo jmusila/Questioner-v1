@@ -32,6 +32,13 @@ class Settings(unittest.TestCase):
             "title": "question title",
             "votes": 2
         }
+        self.upvote = {
+            "votes": 0
+        }
+
+        self.downvote = {
+            "votes": 0
+        }
 
     def tearDown(self):
         del self.meetup
