@@ -30,7 +30,7 @@ class Settings(unittest.TestCase):
             "meetup_id": 1,
             "qsn_id": 1,
             "title": "question title",
-            "votes": "6"
+            "votes": 2
         }
 
     def tearDown(self):
