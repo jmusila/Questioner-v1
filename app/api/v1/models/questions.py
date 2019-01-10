@@ -10,3 +10,9 @@ class Question:
         self.body = body
         self.votes = votes
         self.Questions = []
+
+    """ Method for getting single question """
+    def get_single_question(self, qsn_id):
+        for q in self.Questions:
+            if q['qsn_id'] == qsn_id:
+                return q
