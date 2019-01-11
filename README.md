@@ -1,5 +1,5 @@
 ## Questioner-v1  
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)  [![Build Status](https://travis-ci.com/jonathanmusila/Questioner-v1.svg?branch=develop)](https://travis-ci.com/jonathanmusila/Questioner-v1)  [![Coverage Status](https://coveralls.io/repos/github/jonathanmusila/Questioner-v1/badge.svg?branch=master)](https://coveralls.io/github/jonathanmusila/Questioner-v1?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)  [![Build Status](https://travis-ci.com/jonathanmusila/Questioner-v1.svg?branch=develop)](https://travis-ci.com/jonathanmusila/Questioner-v1)  [![Coverage Status](https://coveralls.io/repos/github/jonathanmusila/Questioner-v1/badge.svg?branch=master)](https://coveralls.io/github/jonathanmusila/Questioner-v1?branch=master)  [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/jonathanmusila/Questioner-v1)
 
 
 ## Summary
@@ -8,6 +8,10 @@
 
 ## NOTE
 * The project is managed using PivotalTracker board [click here](https://www.pivotaltracker.com/n/projects/2235195)
+
+* To see the app documentation [click here](https://my-questioner-app.herokuapp.com)
+
+* To see API hosted on heroku [click here](https://my-questioner-app.herokuapp.com)
 
 
 ## Getting Started 
@@ -70,7 +74,9 @@ Test the following endpoints:
 | -------------------------------|:---------------------------------------:|
 | POST     /meetups/upcoming     | Posts new meetup                        |
 | GET     /meetups/upcoming      | Gets all meetups as a list              |
-| GET     /meetups/upcoming      | Gets a single meetup by id              |
+| GET    /meetups/upcoming/id    | Gets a single meetup by id              |
+| PUT     /meetups/upcoming/id   | Updates a single meetup                 |
+| DELETE  /meetups/upcoming/id   | Deletes a single meetup by id           |
 |                                                                          |
 
 ### Questions endpoints
@@ -80,6 +86,8 @@ Test the following endpoints:
 | POST     /meetups/id/questions      | Posts new question                      |
 | PATCH     /meetups/id/upvote        | Patches a upvote to a question          |
 | PATCH     /meetups/id/upvote        | Patches a upvote to a question          |
+| PUT     /meetups/id/questions/id    | Updates a single question by id         |
+| GET     /meetups/id/questions/id    | Gets a single question by id            |
 |                                                                               |
 
 ### Rsvp endpoints
