@@ -40,4 +40,13 @@ class TestQuestions(Settings):
         data = json.loads(rv1.data.decode())
         self.assertEqual(rv1.status_code, 200)
         self.assertIn('The question body', str(rv1.data))
+
+    def test_update_question(self):
+        """Test API can update an existing question. (PUT request)."""
+        rv = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
+        self.assertEqual(rv.status_code, 201)
+        rv1 = self.client.put('/meetups/1/questions/1', data=json.dumps(self.question), content_type='application/json')
+        self.assertEqual(rv1.status_code, 201)
+        results = self.client.get('/meetups/1/questions/1')
+        self.assertIn("1", str(results.data))
         
