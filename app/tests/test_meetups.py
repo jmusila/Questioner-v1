@@ -46,7 +46,7 @@ class TestMeetups(Settings):
         result = self.client.get('/meetus/upcoming/1')
         self.assertEqual(result.status_code, 404)
 
-    def test_update_product(self):
+    def test_update_meetup(self):
         """Test API can update an existing meetup. (PUT request)."""
         rv = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
         self.assertEqual(rv.status_code, 201)
