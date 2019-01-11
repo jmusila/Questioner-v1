@@ -9,6 +9,10 @@
 ## NOTE
 * The project is managed using PivotalTracker board [click here](https://www.pivotaltracker.com/n/projects/2235195)
 
+* To see the app documentation [click here](https://my-questioner-app.herokuapp.com)
+
+* To see API hosted on heroku [click here](https://my-questioner-app.herokuapp.com)
+
 
 ## Getting Started 
 
