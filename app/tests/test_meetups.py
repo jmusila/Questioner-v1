@@ -45,3 +45,12 @@ class TestMeetups(Settings):
         # Test to see if it exists, should return a 404
         result = self.client.get('/meetus/upcoming/1')
         self.assertEqual(result.status_code, 404)
+
+    def test_update_product(self):
+        """Test API can update an existing meetup. (PUT request)."""
+        rv = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
+        self.assertEqual(rv.status_code, 201)
+        rv1 = self.client.put('/meetups/upcoming/1', data=json.dumps(self.meetup), content_type='application/json')
+        self.assertEqual(rv1.status_code, 201)
+        results = self.client.get('/meetups/upcoming/1')
+        self.assertIn("1", str(results.data))
