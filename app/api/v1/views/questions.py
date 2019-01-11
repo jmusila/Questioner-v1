@@ -15,7 +15,7 @@ from app.api.v1.models.meetups import Meetups
 from app.api.v1.views.meetups import meetup
 from app.api.v1.views.expect import VotesModel
 
-question = Question('qsn_id', 'body','meetup_id', 'title', 'votes' )
+question = Question('body','meetup_id', 'title', 'votes' )
 new_question = QuestionModel().questions
 n_votes = VotesModel().nvotes
 api = QuestionModel().api 
