@@ -7,7 +7,7 @@ from werkzeug.exceptions import NotFound
 from app.api.v1.models.meetups import Meetups
 from app.api.v1.views.expect import MeetupsModel
 
-meetup = Meetups('m_id', 'location', 'images', 'topic', 'happeningOn')
+meetup = Meetups('location', 'images', 'topic', 'happeningOn')
 new_meetup = MeetupsModel().meetups
 api = MeetupsModel().api
 
