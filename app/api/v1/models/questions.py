@@ -2,8 +2,7 @@ from datetime import datetime
 
 class Question:
     """ Questions constructor """
-    def __init__(self, qsn_id, meetup_id, title, body, votes):
-        self.qsn_id = qsn_id
+    def __init__(self, meetup_id, title, body, votes):
         self.createdOn = datetime.now()
         self.meetup_id = meetup_id
         self.title = title
