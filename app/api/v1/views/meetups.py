@@ -44,3 +44,14 @@ class SingleMeetup(Resource):
             meetup.Meetups.remove(d)
             return {"Message": "Meetup deleted successfully", 'Status': 204}, 204
         raise NotFound('Meetup with that id not found')
+
+    @api.expect(new_meetup, validate = True)
+    def put(self, m_id):
+        '''Update Meetup'''
+        u = api.payload
+        d = meetup.get_single_meetup(m_id)
+        if d:
+            u['m_id'] = d['m_id']
+            d.update(u)
+            return make_response(jsonify({'Message': "Meetup updated successfully", 'Status': 201, "Data":d}), 201)
+        raise NotFound('Meetup with that id not found')
