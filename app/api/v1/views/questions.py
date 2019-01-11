@@ -38,6 +38,15 @@ class Questions(Resource):
 
 @api.route('/<int:m_id>/questions/<int:qsn_id>')
 class SingleQuestion(Resource):
+    @api.marshal_with(new_question, envelope = 'Question')
+    def get(self, m_id, qsn_id):
+        '''Get single Question'''
+        if meetup.get_single_meetup(m_id):
+            a = question.get_single_question(qsn_id)
+            if a:
+                return a
+            raise NotFound ('Question with that id not found')
+        raise NotFound ('Meetup with that id not found')
 
     @api.expect(new_question, validate = True)
     def put(self, m_id, qsn_id):
