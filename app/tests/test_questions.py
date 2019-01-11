@@ -17,8 +17,8 @@ class TestQuestions(Settings):
         res = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
         rv = self.client.post('/meetups/1/questions', data=json.dumps(self.question), content_type='application/json')
         self.assertEqual(res.status_code, 201)
-        res1 = self.client.get('/meetups/1/questions/4')
-        data = res1.get_data().decode()
+        res1 = self.client.get('/meetups/1/questions/8')
+        data = json.loads(res1.data.decode())
         self.assertEqual(res1.status_code, 404)
 
     def test_upvote_a_question(self):
@@ -43,10 +43,11 @@ class TestQuestions(Settings):
 
     def test_update_question(self):
         """Test API can update an existing question. (PUT request)."""
-        rv = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
+        rs = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
+        rv = self.client.post('/meetups/1/questions', data=json.dumps(self.question), content_type='application/json')
         self.assertEqual(rv.status_code, 201)
         rv1 = self.client.put('/meetups/1/questions/1', data=json.dumps(self.question), content_type='application/json')
         self.assertEqual(rv1.status_code, 201)
         results = self.client.get('/meetups/1/questions/1')
-        self.assertIn("1", str(results.data))
+        self.assertIn("0", str(results.data))
         

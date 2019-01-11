@@ -36,6 +36,23 @@ class Questions(Resource):
             return make_response(jsonify({'Message': "Question added successfully", 'Status': 201, "Data": new_qsn}), 201)
         raise NotFound ('Meetup with that id not found')
 
+@api.route('/<int:m_id>/questions/<int:qsn_id>')
+class SingleQuestion(Resource):
+
+    @api.expect(new_question, validate = True)
+    def put(self, m_id, qsn_id):
+        '''Update Question'''
+        if meetup.get_single_meetup(m_id):
+            u = api.payload
+            q = question.get_single_question(qsn_id)
+            if q:
+                u['meetup_id'] = q['meetup_id']
+                u['qsn_id'] = q['qsn_id']
+                q.update(u)
+                return make_response(jsonify({'Message': "Question updated successfully", 'Status': 201, "Data":u}), 201)
+            raise NotFound('Question with that id not found')
+        raise NotFound('Meetup with that id not found')
+
 @api.route('/questions/<int:qsn_id>/upvote')
 class UpVoteQuestion(Resource):
     @api.expect(n_votes, validate = True)
