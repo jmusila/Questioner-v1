@@ -17,8 +17,8 @@ class TestQuestions(Settings):
         res = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
         rv = self.client.post('/meetups/1/questions', data=json.dumps(self.question), content_type='application/json')
         self.assertEqual(res.status_code, 201)
-        res1 = self.client.get('/meetups/1/questions/4')
-        data = res1.get_data().decode()
+        res1 = self.client.get('/meetups/1/questions/8')
+        data = json.loads(res1.data.decode())
         self.assertEqual(res1.status_code, 404)
 
     def test_upvote_a_question(self):
