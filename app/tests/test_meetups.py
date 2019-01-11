@@ -35,3 +35,13 @@ class TestMeetups(Settings):
         res1 = self.client.get('/meetups/upcoming/4') 
         data = json.loads(res1.get_data().decode())
         self.assertEqual(res1.status_code, 404)
+
+    def test_delete_meetup(self):
+        """Test API can delete an existing meetup. (DELETE request)."""
+        rv = self.client.post('/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
+        self.assertEqual(rv.status_code, 201)
+        res = self.client.delete('/meetups/upcoming/1', content_type='application/json')
+        self.assertEqual(res.status_code, 204)
+        # Test to see if it exists, should return a 404
+        result = self.client.get('/meetus/upcoming/1')
+        self.assertEqual(result.status_code, 404)
