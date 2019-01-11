@@ -39,9 +39,16 @@ class Settings(unittest.TestCase):
         self.downvote = {
             "votes": 0
         }
+        self.rsvp ={
+            "meetup_id": 1,
+            "r_id": 1,
+            "status": "string",
+            "topic": "string"
+        }
 
     def tearDown(self):
         del self.meetup
         del self.question
         del self.upvote 
         del self.downvote
+        del self.rsvp
