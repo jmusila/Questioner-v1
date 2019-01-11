@@ -36,3 +36,11 @@ class SingleMeetup(Resource):
         if a:
             return a
         raise NotFound ('Meetup with that id not found')
+
+    def delete(self, m_id):
+        '''Delete Meetup'''
+        d = meetup.get_single_meetup(m_id)
+        if d:
+            meetup.Meetups.remove(d)
+            return {"Message": "Meetup deleted successfully", 'Status': 204}, 204
+        raise NotFound('Meetup with that id not found')
