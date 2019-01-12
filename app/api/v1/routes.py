@@ -20,6 +20,6 @@ api = Api(
     description='A simple Questioner API',
 )
 
-api.add_namespace(meetups_route, path = "/meetups/upcoming")
-api.add_namespace(questions_route, path = "/meetups")
-api.add_namespace(response_route, path = "/meetups")
+api.add_namespace(meetups_route, path = "/api/v1/meetups/upcoming")
+api.add_namespace(questions_route, path = "/api/v1/meetups")
+api.add_namespace(response_route, path = "/api/v1/meetups")
