@@ -6,35 +6,40 @@ This file contaions all the endpoints for the questions
 # Third party imports
 from flask_restplus import Resource
 from flask import request, make_response, jsonify
-from werkzeug.exceptions import BadRequest, NotFound, Unauthorized, Forbidden
 
 #Local imports
-from app.api.v1.models.questions import Question
+from app.api.v1.models.questions import Question, Questions
 from app.api.v1.views.expect import QuestionModel
-from app.api.v1.models.meetups import Meetups
+from app.api.v1.models.meetups import Meetup
 from app.api.v1.views.meetups import meetup
 from app.api.v1.views.expect import VotesModel
 
-question = Question('body','meetup_id', 'title', 'votes' )
+question = Question()
 new_question = QuestionModel().questions
 n_votes = VotesModel().nvotes
 api = QuestionModel().api 
 
 @api.route('/<int:m_id>/questions')
-class Questions(Resource):
+class QuestionsOp(Resource):
 
     @api.expect(new_question, validate = True)
     def post(self, m_id):
         '''Post a question'''
         a = meetup.get_single_meetup(m_id)
         if a:
-            new_qsn = api.payload
-            new_qsn['qsn_id'] = len(question.Questions) + 1
-            new_qsn['createdOn'] = question.createdOn
-            new_qsn['meetup_id'] = a['m_id']
-            question.Questions.append(new_qsn)
-            return make_response(jsonify({'Message': "Question added successfully", 'Status': 201, "Data": new_qsn}), 201)
-        raise NotFound ('Meetup with that id not found')
+            data = request.get_json()
+            new_q ={
+            "qsn_id": int(len(Questions)+ 1),
+            "meetup_id": a['m_id'],
+            "title": data['title'],
+            "body": data['body'],
+            "votes": int(0),
+            "createdOn": question.createdOn,
+            }
+            question.add_new_question(new_q)
+            return make_response(jsonify({'Message': "Question added successfully", 'Status': 201, "Data": new_q}), 201)
+        return make_response(jsonify({'Message': "Meetup with that id not found", 'Status': 404}), 404)
+
 
 @api.route('/<int:m_id>/questions/<int:qsn_id>')
 class SingleQuestion(Resource):
@@ -45,8 +50,8 @@ class SingleQuestion(Resource):
             a = question.get_single_question(qsn_id)
             if a:
                 return a
-            raise NotFound ('Question with that id not found')
-        raise NotFound ('Meetup with that id not found')
+            return make_response(jsonify({'Message': "Question with that id not found", 'Status': 404}), 404)
+        return make_response(jsonify({'Message': "Meetup with that id not found", 'Status': 404}), 404)
 
     @api.expect(new_question, validate = True)
     def put(self, m_id, qsn_id):
@@ -59,8 +64,8 @@ class SingleQuestion(Resource):
                 u['qsn_id'] = q['qsn_id']
                 q.update(u)
                 return make_response(jsonify({'Message': "Question updated successfully", 'Status': 201, "Data":u}), 201)
-            raise NotFound('Question with that id not found')
-        raise NotFound('Meetup with that id not found')
+            return make_response(jsonify({'Message': "Question with that id not found", 'Status': 404}), 404)
+        return make_response(jsonify({'Message': "Meetup with that id not found", 'Status': 404}), 404)
 
 @api.route('/questions/<int:qsn_id>/upvote')
 class UpVoteQuestion(Resource):
@@ -71,7 +76,7 @@ class UpVoteQuestion(Resource):
         if item:
             item['votes'] = item['votes']+ 1
             return make_response(jsonify({'Message': "Vote updated successfully", 'Status': 201, "Data": item}), 201)
-        raise NotFound ('Question with that id not found')
+        return make_response(jsonify({'Message': "Meetup with that id not found", 'Status': 404}), 404)
 
 @api.route('/questions/<int:qsn_id>/downvote')
 class DownVoteQuestion(Resource):
@@ -83,5 +88,8 @@ class DownVoteQuestion(Resource):
             if item['votes'] > 0: 
                 item['votes'] = item['votes']- 1
                 return make_response(jsonify({'Message': "Vote updated successfully", 'Status': 201, "Data": item}), 201)
-            raise BadRequest('Votes cannot be less than zero')
-        raise NotFound ('Question with that id not found')
+            return make_response(jsonify({'Message': "Meetup with that id not found", 'Status': 400}), 400)
+        return make_response(jsonify({'Message': "Meetup with that id not found", 'Status': 404}), 404)
+
+
+
