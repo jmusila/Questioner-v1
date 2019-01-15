@@ -41,7 +41,7 @@ class TestMeetups(Settings):
         rv = self.client.post('/api/v1/meetups/upcoming', data=json.dumps(self.meetup), content_type='application/json')
         self.assertEqual(rv.status_code, 201)
         res = self.client.delete('/api/v1/meetups/upcoming/1', content_type='application/json')
-        self.assertEqual(res.status_code, 204)
+        self.assertEqual(res.status_code, 200)
         # Test to see if it exists, should return a 404
         result = self.client.get('/api/v1/meetus/upcoming/1')
         self.assertEqual(result.status_code, 404)

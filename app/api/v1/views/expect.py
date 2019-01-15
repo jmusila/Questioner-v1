@@ -10,8 +10,8 @@ class MeetupsModel:
     """
     api = Namespace('Meetups', description = 'Meetups Routes')
     meetups = api.model('Meetup', {
-        'm_id':fields.Integer(required=True, description='The unique identifier of the meetup'),
-        'createdOn': fields.String(required=True, description='This time the meetup was created'),
+        'm_id':fields.Integer(required=False, description='The unique identifier of the meetup'),
+        'createdOn': fields.String(required=False, description='This time the meetup was created'),
         'location': fields.String(required=True, description='The meetup location'),
         'images': fields.String(required=True, description='The images attached to a meetup'),
         'topic': fields.String(required=True, description='The meetup topic'),
