@@ -16,4 +16,4 @@ class Responds:
             "topic": res['topic'],
             "status": res['status']  
             }
-        Responses.append(res)
+        Responses.append(res) 
