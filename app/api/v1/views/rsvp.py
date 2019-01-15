@@ -1,15 +1,14 @@
 # Third party imports
 from flask_restplus import Resource
 from flask import request, make_response, jsonify
-from werkzeug.exceptions import BadRequest, NotFound, Unauthorized, Forbidden
 
 #Local imports
-from app.api.v1.models.rsvp import Responds
+from app.api.v1.models.rsvp import Responds, Responses
 from app.api.v1.views.expect import ResponseModel
-from app.api.v1.models.meetups import Meetups
+from app.api.v1.models.meetups import Meetup
 from app.api.v1.views.meetups import meetup
 
-response = Responds('r_id', 'meetup_id', 'topic', 'status' )
+response = Responds()
 new_res = ResponseModel().responses
 api = ResponseModel().api
 
@@ -17,14 +16,17 @@ api = ResponseModel().api
 class ReapondOp(Resource):
 
     @api.expect(new_res, validate = True)
-    def post(self, m_id): 
+    def post(self, m_id):
         '''Post a question'''
         a = meetup.get_single_meetup(m_id)
         if a:
-            new_response = api.payload
-            new_response['r_id'] = len(response.Responds) + 1
-            new_response['meetup_id'] = a['m_id']
-            new_response['topic'] = a['topic']
-            response.Responds.append(new_response)
-            return make_response(jsonify({'Message': "Response added successfully", 'Status': 201, "Data": new_response}), 201)
-        raise NotFound ('Meetup with that id not found')
+            data = request.get_json()
+            res ={
+                "r_id": int(len(Responses)+ 1),
+                "meetup_id": a['m_id'],
+                "topic": a['topic'],
+                "status": data['status']  
+            }
+            response.add_new_response(res)
+            return make_response(jsonify({'Message': "Response added successfully", 'Status': 201, "Data": res}), 201)
+        return make_response(jsonify({'Message': "Meetup with that id not found", 'Status': 404}), 404)
