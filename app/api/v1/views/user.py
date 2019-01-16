@@ -7,10 +7,8 @@ from flask import request, abort, jsonify, make_response
 #Local imports
 from app.api.v1.models.user import User, Users
 from app.api.v1.views.expect import UserModel
-from app.api.v1.views.expect import LoginModel
 
 user = User()
-logn = LoginModel().login
 new_user = UserModel().users
 api = UserModel().api 
 
