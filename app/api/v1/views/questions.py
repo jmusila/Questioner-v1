@@ -43,7 +43,7 @@ class QuestionsOp(Resource):
 
 @api.route('/<int:m_id>/questions/<int:qsn_id>')
 class SingleQuestion(Resource):
-        @api.doc(envelope = 'Question')
+    @api.doc(envelope = 'Question')
     def get(self, m_id, qsn_id):
         '''Get single Question'''
         if meetup.get_single_meetup(m_id):
