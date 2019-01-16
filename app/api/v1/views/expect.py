@@ -57,17 +57,19 @@ class VotesModel:
         })
 
 
-class QuestionModel:
+class UserModel:
     """
-    Question input data
+    User input data
 
     """
-    api = Namespace('Questions', description='Questions Routes')
-    questions = api.model('Question', {
-        'qsn_id':fields.Integer(required=True, description='The unique identifier of the question'),
-        'body': fields.String(required=True, description='The body of the question'),
-        'meetup_id': fields.Integer(required=True, description='The meetup unique identifier'),
-        'createdOn': fields.String(required=True, description='The time the question was posted'),
-        'title': fields.String(required=True, description='The title of the question'),
-        'votes': fields.Integer(required=True, description='The number of votes a question contains'),
+    api = Namespace('Users', description = 'User Routes')
+    users = api.model('User', {
+        'user_id':fields.Integer(required=False, description='This is the user firstname'),
+        'fname': fields.String(required=True, description='This is the user firstname'),
+        'lname': fields.String(required=True, description='This is the user lastname'),
+        'email': fields.String(required=True, description='The user email'),
+        'username': fields.String(required=True, description='The username of the user'),
+        'password': fields.String(required=True, description='The password of the user'),
+        'registered': fields.String(required=False, description='The time the user was registered'),
+        'isAdmin': fields.Boolean(required=False, description='The role of the user'),
     })
