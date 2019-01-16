@@ -10,7 +10,7 @@ class TestQuestions(Settings):
     def test_register_user(self):
         """Test API can create a new user to questioner"""
         res = self.client.post('api/v1/auth/register', content_type='application/json', data=json.dumps(self.user))
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 409)
 
     def test_get_all_users(self):
         """Test API can get all the users from the list."""
