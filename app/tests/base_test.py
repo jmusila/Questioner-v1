@@ -54,6 +54,10 @@ class Settings(unittest.TestCase):
           "fname": "jonathan",
           "registered": "2019-01-15 15:33:24.404035"
         }
+        self.login = {
+            "email": "string@gmail.com",
+            "password": "123jonathan",
+        }
     def tearDown(self):
         del self.meetup
         del self.question
@@ -61,3 +65,4 @@ class Settings(unittest.TestCase):
         del self.downvote
         del self.rsvp
         del self.user
+        del self.login
