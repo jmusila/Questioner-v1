@@ -55,3 +55,21 @@ class VotesModel:
     nvotes = api.model('Question', {
         'votes': fields.Integer(required=True, description='The number of votes a question contains'),
         })
+
+
+class UserModel:
+    """
+    User input data
+
+    """
+    api = Namespace('Users', description = 'User Routes')
+    users = api.model('User', {
+        'user_id':fields.Integer(required=False, description='This is the user firstname'),
+        'fname': fields.String(required=True, description='This is the user firstname'),
+        'lname': fields.String(required=True, description='This is the user lastname'),
+        'email': fields.String(required=True, description='The user email'),
+        'username': fields.String(required=True, description='The username of the user'),
+        'password': fields.String(required=True, description='The password of the user'),
+        'registered': fields.String(required=False, description='The time the user was registered'),
+        'isAdmin': fields.Boolean(required=False, description='The role of the user'),
+    })
