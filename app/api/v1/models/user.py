@@ -1,6 +1,5 @@
 from datetime import datetime
 from flask import make_response, jsonify, request
-from validate_email import validate_email
 
 Users =[]
 
