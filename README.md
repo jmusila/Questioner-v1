@@ -97,6 +97,14 @@ Test the following endpoints:
 | POST     /meetups/id/rsvp           | Posts a response to a meetup tag        |
 |                                                                               |
 
+### User endpoints
+
+| EndPoint                            | Functionality                           |
+| ------------------------------------|:---------------------------------------:|
+| POST     /auth/signup               | Posts a sinup user                      |
+| POST     /auth/login                | Posts a login user                      |
+|                                                                               |
+
 ## Authors
 
 * **Jonathan Musila** - *Initial work* - [jonathanmusila](https://github.com/jonathanmusila)
