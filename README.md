@@ -1,4 +1,5 @@
 ## Questioner-v1  
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cdf9860e397d4762be40dfb102eccac3)](https://app.codacy.com/manual/jonathanmusila/Questioner-v1?utm_source=github.com&utm_medium=referral&utm_content=jonathanmusila/Questioner-v1&utm_campaign=Badge_Grade_Dashboard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)  [![Build Status](https://travis-ci.com/jonathanmusila/Questioner-v1.svg?branch=develop)](https://travis-ci.com/jonathanmusila/Questioner-v1)  [![Coverage Status](https://coveralls.io/repos/github/jonathanmusila/Questioner-v1/badge.svg?branch=develop)](https://coveralls.io/github/jonathanmusila/Questioner-v1?branch=develop)  [![Maintainability](https://api.codeclimate.com/v1/badges/5b80626e40e65313a087/maintainability)](https://codeclimate.com/github/jonathanmusila/Questioner-v1/maintainability)
 
 
